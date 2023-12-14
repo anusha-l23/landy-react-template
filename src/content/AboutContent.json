@@ -1,16 +1,4 @@
 {
-  "title": "Light, fast & responsive",
-  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
-  "section": [
-    {
-      "title": "Why Antd?",
-      "content": "Ant Design is a React UI library that has a lot of easy-to-use components for building elegant UI.",
-      "icon": "notes.svg"
-    },
-    {
-      "title": "Why styled-components?",
-      "content": "Styled Components gives you total control over your components.",
-      "icon": "notes.svg"
-    }
-  ]
+  "title": "Transforming Races, Elevating Experiences",
+  "text": "Welcome to NovaRace, your premier destination for cutting-edge race management and timing solutions in the vibrant city of Bangalore, India. Founded on a passion for excellence and a commitment to redefining the race experience, NovaRace is more than a company; it's a journey into the future of racing."
 }
