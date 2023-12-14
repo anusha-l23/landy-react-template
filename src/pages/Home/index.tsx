@@ -31,7 +31,7 @@ const Home = () => {
       />
       <MiddleBlock
         title={MiddleBlockContent.title}
-        content={MiddleBlockContent.text}
+        //content={MiddleBlockContent.text}
         button={MiddleBlockContent.button}
       />
       <ContentBlock
