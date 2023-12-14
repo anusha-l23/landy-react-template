@@ -52,7 +52,7 @@ const Home = () => {
         direction="left"
         title={ProductContent.title}
         content={ProductContent.text}
-        icon="waving.svg"
+        icon="contact.svg"
         id="registration"
       />
       <ContentBlock
