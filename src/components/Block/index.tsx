@@ -10,7 +10,7 @@ interface Props {
 const Block = ({ title, content, t }: Props) => {
   return (
     <Container>
-      <h6 style={{fontSize:"3em"}}>{t(title)}</h6>
+      <h6 style={{fontSize:"2em"}}>{t(title)}</h6>
       <TextWrapper>
         <Content>{t(content)}</Content>
       </TextWrapper>

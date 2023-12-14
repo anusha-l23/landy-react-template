@@ -23,7 +23,7 @@ const MiddleBlock = ({ title, button, t }: MiddleBlockProps) => {
         <Row justify="center" align="middle">
           <ContentWrapper>
             <Col lg={24} md={24} sm={24} xs={24}>
-              <h6 style={{fontSize:"3em"}}>{t(title)}</h6>
+              <h6 style={{fontSize:"2em"}}>{t(title)}</h6>
              
               {button && (
                 <Button name="submit" onClick={() => scrollTo("registration")}>
