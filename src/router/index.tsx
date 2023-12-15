@@ -8,8 +8,6 @@ import { Styles } from "../styles/styles";
 const Router = () => {
   return (
     <Suspense fallback={null}>
-      <Styles />
-      <Header />
       <Switch>
         {routes.map((routeItem) => {
           return (

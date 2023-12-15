@@ -8,7 +8,8 @@ import ContactContent from "../../content/ContactContent.json";
 import RaceTiming from "../../content/RaceTiming.json";
 import Scoring from "../../content/Scoring.json";
 import Participant from "../../content/Participant.json";
-
+import { Styles } from "../../styles/styles";
+import Header from "../../components/Header";
 const Contact = lazy(() => import("../../components/ContactForm"));
 const MiddleBlock = lazy(() => import("../../components/MiddleBlock"));
 const Container = lazy(() => import("../../common/Container"));
@@ -19,7 +20,10 @@ const IntroBlock = lazy(()=> import("../../components/IntroBlock"))
 // /const IntroBlock = lazy(() => import("../../components/IntroBlock"));
 const Home = () => {
   return (
+    
     <Container>
+      <Styles />
+      <Header />
       <ScrollToTop />
       <ContentBlock
         direction="right"
