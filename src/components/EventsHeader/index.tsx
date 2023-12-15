@@ -3,7 +3,6 @@ import { Row, Col, Drawer } from "antd";
 import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
 import { SvgIcon } from "../../common/SvgIcon";
-
 import {
   HeaderSection,
   HeaderSection1,
@@ -19,7 +18,6 @@ import {
   Flex,
   Span,
 } from "./styles";
-
 const Header = ({ t }: { t: TFunction }) => {
   const [visible, setVisibility] = useState(false);
 
@@ -56,8 +54,12 @@ const Header = ({ t }: { t: TFunction }) => {
     padding: '0em 10em 0em 1em',
     borderTop: 'none', // Remove top border
     borderLeft: 'none', // Remove left border
-    borderRight: 'none', // Remove right border
-    // Other styles
+    borderRight: 'none',
+    '&:focus': {
+      borderTop: '0', // Remove top border on focus
+      borderRight: '0', // Remove right border on focus
+      borderLeft: '0', // Remove left border on focus
+    },
   };
   
   const selectdiv = {
@@ -104,7 +106,6 @@ const Header = ({ t }: { t: TFunction }) => {
       </Container>
     </HeaderSection>
   <HeaderSection1>
-  <Container>
   <Flex>
 <FlexInline>
             <select style={selectdiv}>
@@ -122,13 +123,12 @@ const Header = ({ t }: { t: TFunction }) => {
          
 <input style={inputStyle} />
 <input style={inputStyle} />
+
 </FlexInline>
 <button style={{backgroundColor: '#9f1d21', border:"none", padding: '0em 1.5em 0em 1.5em'}}>
 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21l-6-6m2-5a7 7 0 1 1-14 0a7 7 0 0 1 14 0"></path></svg>
 </button>
 </Flex>
-
-  </Container>
 </HeaderSection1>
 </>
   );

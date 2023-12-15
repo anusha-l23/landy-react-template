@@ -98,10 +98,10 @@ export const Span = styled("span")`
   }
 `;
 export const HeaderSection1 = styled("header")`
-  padding: 0rem 0.5rem;
+  padding: 0rem 0rem;
 background-color:white;
 display: flex;
-width:60%;
+width: 55%;
 margin-left:auto;
 margin-right:auto;
 align-items: center;
