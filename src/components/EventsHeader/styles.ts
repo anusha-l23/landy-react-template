@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { MenuOutlined } from "@ant-design/icons";
 
 export const HeaderSection = styled("header")`
-  padding: 1rem 0.5rem;
+  padding: 2rem 0.5rem;
 background-color:#9F2222;
   .ant-row-space-between {
     align-items: center;
@@ -101,14 +101,13 @@ export const HeaderSection1 = styled("header")`
   padding: 0rem 0rem;
 background-color:white;
 display: flex;
-width: 55%;
-margin-left:auto;
-margin-right:auto;
+width: 100%;
 align-items: center;
-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 position: sticky;
   top: 0;
   z-index:1;
+
 .ant-row-space-between {
   align-items: center;
   text-align: center;
@@ -122,20 +121,25 @@ position: sticky;
 export const Flex = styled("div")`
 
 display: flex;
+margin-left:auto;
+margin-right:auto;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   @media only screen and (max-width: 768px) {
     display: flex;
   flex-direction: column;
   gap:5px;
+  width:100%;
   }
 `;
 export const FlexInline = styled("div")`
 
 display: flex;
 gap:20px;
-
+padding:1em;
   @media only screen and (max-width: 768px) {
     display: flex;
   flex-direction: column;
+  width:100%;
   gap:5px;
   }
 `;

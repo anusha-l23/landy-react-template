@@ -3,17 +3,18 @@ import EventsHeader from "../../components/EventsHeader";
 import { Styles } from "../../styles/styles";
 import FooterEvent from "../../components/FooterEvent";
 
-const EventBlock = lazy(()=> import("../../components/EventBlock"))
+const RegistrationForm = lazy(()=> import("../../components/Registration"))
 
-const Events = () => {
+const Registration = () => {
   return (
-    <>
-    <Styles />
+    <> 
+     <Styles />
     <EventsHeader />
-<EventBlock />
+    <RegistrationForm />
   <FooterEvent/>
+
     </>
 );
 };
 
-export default Events;
+export default Registration;

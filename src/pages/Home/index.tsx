@@ -8,6 +8,7 @@ import ContactContent from "../../content/ContactContent.json";
 import RaceTiming from "../../content/RaceTiming.json";
 import Scoring from "../../content/Scoring.json";
 import Participant from "../../content/Participant.json";
+import Footer from "../../components/Footer";
 import { Styles } from "../../styles/styles";
 import Header from "../../components/Header";
 const Contact = lazy(() => import("../../components/ContactForm"));
@@ -20,7 +21,7 @@ const IntroBlock = lazy(()=> import("../../components/IntroBlock"))
 // /const IntroBlock = lazy(() => import("../../components/IntroBlock"));
 const Home = () => {
   return (
-    
+    <>
     <Container>
       <Styles />
       <Header />
@@ -86,6 +87,8 @@ const Home = () => {
         id="contact"
       />
     </Container>
+    <Footer />
+    </>
   );
 };
 

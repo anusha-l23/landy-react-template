@@ -17,6 +17,7 @@ export const Heading = styled("section")`
 display:flex;
 justify-content: space-between;
 margin-top:4em;
+margin-bottom:2em;
 position: relative;
 padding:0em 2em;
 
@@ -25,15 +26,13 @@ padding:0em 2em;
   padding: 4rem 0 4rem;
 }
 `;
-export const Img = styled("section")`
-text-align:center;
-`;
+
 
 export const EventSection = styled("section")`
 
 position: relative;
 box-sizing: border-box;
-width:315px;
+width:300px;
 padding: 20px;
 height:315px;
 border: 0px solid #ccc;

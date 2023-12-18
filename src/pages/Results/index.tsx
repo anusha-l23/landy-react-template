@@ -3,17 +3,18 @@ import EventsHeader from "../../components/EventsHeader";
 import { Styles } from "../../styles/styles";
 import FooterEvent from "../../components/FooterEvent";
 
-const EventBlock = lazy(()=> import("../../components/EventBlock"))
 
-const Events = () => {
+const ResultsBlock = lazy(()=> import("../../components/ResultsBlock"))
+
+const Results = () => {
   return (
     <>
     <Styles />
     <EventsHeader />
-<EventBlock />
+  <ResultsBlock />
   <FooterEvent/>
     </>
 );
 };
 
-export default Events;
+export default Results;

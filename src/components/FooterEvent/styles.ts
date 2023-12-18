@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const FooterSection = styled("footer")`
   background: rgb(241, 242, 243);
   padding: 2.5rem 0;
-  
+  margin-top:3em;
 `;
 
 export const Title = styled("h4")`

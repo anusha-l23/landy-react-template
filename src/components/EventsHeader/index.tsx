@@ -3,6 +3,8 @@ import { Row, Col, Drawer } from "antd";
 import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
 import { SvgIcon } from "../../common/SvgIcon";
+import { Link, useLocation } from "react-router-dom";
+
 import {
   HeaderSection,
   HeaderSection1,
@@ -24,7 +26,16 @@ const Header = ({ t }: { t: TFunction }) => {
   const toggleButton = () => {
     setVisibility(!visible);
   };
-
+  const location = useLocation();
+  const { title }: { title?: string } = location.state || {}
+  const [inputValues, setInputValues] = useState({title: title|| ""})
+  const handleInputChange = (event: any) => {
+    const {name, value} = event.target;
+    setInputValues({
+      ...inputValues,
+      [name]: value
+    })
+  }
   const MenuItem = () => {
     const scrollTo = (id: string) => {
       const element = document.getElementById(id) as HTMLDivElement;
@@ -40,9 +51,11 @@ const Header = ({ t }: { t: TFunction }) => {
         </CustomNavLinkSmall>
         <CustomNavLinkSmall onClick={() => {}}>
           <Span>{t("Calender")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={()=>{}}>
+          </CustomNavLinkSmall>
+        <CustomNavLinkSmall onClick={() => {}}>
+        <Link style={{color:"white"}} to="/results">
           <Span>{t("Results")}</Span>
+          </Link>
         </CustomNavLinkSmall>
       
       </>
@@ -51,6 +64,7 @@ const Header = ({ t }: { t: TFunction }) => {
 
   const inputStyle = {
     borderBottom: '1px solid #9f1d21', // Specific border style
+   
     padding: '0em 10em 0em 1em',
     borderTop: 'none', // Remove top border
     borderLeft: 'none', // Remove left border
@@ -66,7 +80,7 @@ const Header = ({ t }: { t: TFunction }) => {
     fontSize: "13px",
     padding: "1em",
     color: "#000",
-    marginTop:"2em",
+    marginTop:"0em",
     borderBottom: '1px solid #9f1d21', 
     borderTop: 'none', // Remove top border
     borderLeft: 'none', // Remove left border
@@ -121,12 +135,12 @@ const Header = ({ t }: { t: TFunction }) => {
               <option value="2014">2014</option>
               </select>
          
-<input style={inputStyle} />
-<input style={inputStyle} />
+<input style={inputStyle} name={title} value={inputValues.title} onChange={handleInputChange} placeholder="Enter your event name" />
+<input style={inputStyle} placeholder="Enter your BIB# or Name" />
 
 </FlexInline>
-<button style={{backgroundColor: '#9f1d21', border:"none", padding: '0em 1.5em 0em 1.5em'}}>
-<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21l-6-6m2-5a7 7 0 1 1-14 0a7 7 0 0 1 14 0"></path></svg>
+<button style={{backgroundColor: '#9f1d21', border:"none", padding: '0em 1.5em 0em 1.5em', color:"white", fontWeight:"bold"}}>
+<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21l-6-6m2-5a7 7 0 1 1-14 0a7 7 0 0 1 14 0"></path></svg>
 </button>
 </Flex>
 </HeaderSection1>
