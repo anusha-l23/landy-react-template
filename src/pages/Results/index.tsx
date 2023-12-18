@@ -11,7 +11,7 @@ const Results = () => {
     <>
     <Styles />
     <EventsHeader />
-  <ResultsBlock />
+  <ResultsBlock id="results"/>
   <FooterEvent/>
     </>
 );

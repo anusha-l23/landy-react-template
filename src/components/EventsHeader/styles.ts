@@ -27,12 +27,12 @@ export const CustomNavLink = styled("div")`
 
   @media only screen and (max-width: 411px) {
     width: 150px;
-    background-color:#9F2222;
+    //background-color:#9F2222;
   }
 
   @media only screen and (max-width: 320px) {
     width: 118px;
-    background-color:#9F2222;
+    //background-color:#9F2222;
   }
 `;
 
@@ -45,7 +45,7 @@ export const Burger = styled("div")`
   display: none;
 
   svg {
-    fill: #2e186a;
+    fill: white;
   }
 `;
 
@@ -70,8 +70,10 @@ export const CustomNavLinkSmall = styled(NavLink)`
 
   @media only screen and (max-width: 768px) {
     margin: 1.25rem 2rem;
+    color: #18216d;
   }
 `;
+
 
 export const Label = styled("span")`
   font-weight: 500;
@@ -86,6 +88,17 @@ export const Outline = styled(MenuOutlined)`
   font-size: 22px;
 `;
 
+// export const Span = styled("span")`
+//   cursor: pointer;
+//   transition: all 0.3s ease-in-out;
+
+//   &:hover,
+//   &:active,
+//   &:focus {
+//     background-color: #771414;
+//     padding:0.3em 0.8em;
+//   }
+// `;
 export const Span = styled("span")`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -93,8 +106,9 @@ export const Span = styled("span")`
   &:hover,
   &:active,
   &:focus {
-    background-color: #771414;
-    padding:0.3em 0.8em;
+    color: rgb(255, 130, 92);
+    text-underline-position: under;
+    text-decoration: rgb(255, 130, 92) wavy underline;
   }
 `;
 export const HeaderSection1 = styled("header")`

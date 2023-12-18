@@ -53,8 +53,10 @@ const Header = ({ t }: { t: TFunction }) => {
           <Span>{t("Calender")}</Span>
           </CustomNavLinkSmall>
         <CustomNavLinkSmall onClick={() => {}}>
-        <Link style={{color:"white"}} to="/results">
-          <Span>{t("Results")}</Span>
+        <Link to="/results">
+        <Span style={{ color: window.innerWidth <= 768 ? "#18216d" : "white" }}>
+        {t("Results")}
+  </Span>
           </Link>
         </CustomNavLinkSmall>
       
@@ -90,6 +92,7 @@ const Header = ({ t }: { t: TFunction }) => {
 }
   return (
     <>
+    
     <HeaderSection>
       <Container>
         <Row justify="space-between">
@@ -103,7 +106,6 @@ const Header = ({ t }: { t: TFunction }) => {
             <Outline />
           </Burger>
         </Row>
-        
         <Drawer closable={false} open={visible} onClose={toggleButton}>
           <Col style={{ marginBottom: "2.5rem" }}>
             <Label onClick={toggleButton}>

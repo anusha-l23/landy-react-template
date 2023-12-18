@@ -13,9 +13,10 @@ import {
   Main,
   Heading,
 } from "./styles";
+import { ResultBlockProps } from "./types";
 
 
-const ResultsBlock = () => {
+const ResultsBlock = ({id}: ResultBlockProps) => {
 
   console.log(data, "data");
   return (

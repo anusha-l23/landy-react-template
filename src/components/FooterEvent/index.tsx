@@ -47,69 +47,42 @@ const FooterEvent = ({ t }: { t: TFunction }) => {
 
   return (
     <>
-      <FooterSection>
+      
+      <Extra>
         <Container>
-          <Row justify="space-between">
-            <Col lg={10} md={10} sm={12} xs={12}>
-              <Language>{t("Contact")}</Language>
-              <Large to="/">{t("Tell us everything")}</Large>
-              <Para>
-                {t(`Do you have any question? Feel free to reach out.`)}
-              </Para>
-              <a href="mailto:l.qqbadze@gmail.com">
-                <Chat>{t(`Let's Chat`)}</Chat>
-              </a>
-            </Col>
-            <Col lg={8} md={8} sm={12} xs={12}>
-              <Title>{t("Policy")}</Title>
-              <Large to="/">{t("Application Security")}</Large>
-              <Large to="/">{t("Software Principles")}</Large>
-            </Col>
-            <Col lg={6} md={6} sm={12} xs={12}>
-              <Empty />
-              <Large to="/">{t("Support Center")}</Large>
-              <Large to="/">{t("Customer Support")}</Large>
-            </Col>
-          </Row>
-          <Row justify="space-between">
-            <Col lg={10} md={10} sm={12} xs={12}>
-              <Empty />
-              <Language>{t("Address")}</Language>
-              <Para>NovaRace Management Solutions</Para>
-              <Para>Plot No. 77, Jbr Tech Park, 6th Rd, Whitefield, EPIP Zone, Whitefield, Bengaluru</Para>
-              <Para>Karnataka 560066</Para>
-            </Col>
-            <Col lg={8} md={8} sm={12} xs={12}>
-              <Title>{t("Company")}</Title>
-              <Large to="/">{t("About")}</Large>
-              <Large to="/">{t("Blog")}</Large>
-              <Large to="/">{t("Press")}</Large>
-              <Large to="/">{t("Careers & Culture")}</Large>
-            </Col>
-            <Col lg={6} md={6} sm={12} xs={12}>
-              <Label htmlFor="select-lang">{t("Language")}</Label>
-              <LanguageSwitchContainer>
-                <LanguageSwitch onClick={() => handleChange("en")}>
-                  <SvgIcon
-                    src="united-states.svg"
-                    aria-label="homepage"
-                    width="30px"
-                    height="30px"
-                  />
-                </LanguageSwitch>
-                <LanguageSwitch onClick={() => handleChange("es")}>
-                  <SvgIcon
-                    src="spain.svg"
-                    aria-label="homepage"
-                    width="30px"
-                    height="30px"
-                  />
-                </LanguageSwitch>
-              </LanguageSwitchContainer>
-            </Col>
+          <Row
+            justify="space-between"
+            align="middle"
+            style={{ paddingTop: "3rem" }}
+          >
+            <NavLink to="/">
+              <LogoContainer>
+                <SvgIcon
+                  src="footer-logo.png"
+                  aria-label="homepage"
+                  width="101px"
+                  height="64px"
+                />
+              </LogoContainer>
+            </NavLink>
+            <FooterContainer>
+              <SocialLink
+                href="https://github.com/Adrinlol/create-react-app-adrinlol"
+                src="github.svg"
+              />
+              <SocialLink
+                href="https://twitter.com/Adrinlolx"
+                src="twitter.svg"
+              />
+              <SocialLink
+                href="https://www.linkedin.com/in/lasha-kakabadze/"
+                src="linkedin.svg"
+              />
+             
+            </FooterContainer>
           </Row>
         </Container>
-      </FooterSection>
+      </Extra>
       <Extra>
         <Container border={true}>
           <Row
