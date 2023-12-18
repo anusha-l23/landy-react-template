@@ -16,13 +16,13 @@ align-items:center;
 export const Heading = styled("section")`
 display:flex;
 justify-content: space-between;
-margin-top:4em;
+margin-top:3em;
+margin-bottom:1em;
 position: relative;
 padding:0em 2em;
 
-
-@media only screen and (max-width: 1024px) {
-  padding: 4rem 0 4rem;
+@media only screen and (max-width: 575px) {
+  padding: 0em 0em 1em 0em;
 }
 `;
 export const Img = styled("section")`

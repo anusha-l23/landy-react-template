@@ -115,7 +115,7 @@ export const HeaderSection1 = styled("header")`
   padding: 0rem 0rem;
 background-color:white;
 display: flex;
-width: 100%;
+ width: 100%;
 align-items: center;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 position: sticky;
@@ -129,6 +129,7 @@ position: sticky;
 
 @media only screen and (max-width: 768px) {
   width:100%;
+
 }
 `;
 
@@ -137,10 +138,12 @@ export const Flex = styled("div")`
 display: flex;
 margin-left:auto;
 margin-right:auto;
+width:80%;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   @media only screen and (max-width: 768px) {
     display: flex;
   flex-direction: column;
+  
   gap:5px;
   width:100%;
   }
@@ -150,10 +153,19 @@ export const FlexInline = styled("div")`
 display: flex;
 gap:20px;
 padding:1em;
+width:100%;
   @media only screen and (max-width: 768px) {
     display: flex;
   flex-direction: column;
   width:100%;
   gap:5px;
+  }
+`;
+export const Flex1 = styled("div")`
+
+display: flex;
+gap:20px;
+width:100%;
+  @media only screen and (max-width: 768px) {
   }
 `;

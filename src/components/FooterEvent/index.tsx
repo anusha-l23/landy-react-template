@@ -2,7 +2,7 @@ import { Row, Col } from "antd";
 import { withTranslation, TFunction } from "react-i18next";
 import { SvgIcon } from "../../common/SvgIcon";
 import Container from "../../common/Container";
-
+import { Link } from "react-router-dom";
 import i18n from "i18next";
 import {
   FooterSection,
@@ -53,15 +53,15 @@ const FooterEvent = ({ t }: { t: TFunction }) => {
           <Row
             justify="space-between"
             align="middle"
-            style={{ paddingTop: "3rem" }}
+            style={{ paddingTop: "1rem" }}
           >
             <NavLink to="/">
               <LogoContainer>
                 <SvgIcon
                   src="footer-logo.png"
                   aria-label="homepage"
-                  width="101px"
-                  height="64px"
+                  width="130px"
+                  height="30px"
                 />
               </LogoContainer>
             </NavLink>
@@ -88,49 +88,25 @@ const FooterEvent = ({ t }: { t: TFunction }) => {
           <Row
             justify="space-between"
             align="middle"
-            style={{ paddingTop: "3rem" }}
+            style={{ paddingTop: "1rem" }}
           >
-            <NavLink to="/">
-              <LogoContainer>
-                <SvgIcon
-                  src="logo.svg"
-                  aria-label="homepage"
-                  width="101px"
-                  height="64px"
-                />
-              </LogoContainer>
-            </NavLink>
-            <FooterContainer>
-              <SocialLink
-                href="https://github.com/Adrinlol/create-react-app-adrinlol"
-                src="github.svg"
-              />
-              <SocialLink
-                href="https://twitter.com/Adrinlolx"
-                src="twitter.svg"
-              />
-              <SocialLink
-                href="https://www.linkedin.com/in/lasha-kakabadze/"
-                src="linkedin.svg"
-              />
-              <SocialLink
-                href="https://medium.com/@lashakakabadze/"
-                src="medium.svg"
-              />
-              <a
-                href="https://ko-fi.com/Y8Y7H8BNJ"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  height="36"
-                  style={{ border: 0, height: 36 }}
-                  src="https://storage.ko-fi.com/cdn/kofi3.png?v=3"
-                  alt="Buy Me a Coffee at ko-fi.com"
-                />
-              </a>
-            </FooterContainer>
-          </Row>
+<Col>
+<Chat>
+<Link to="#" style={{marginLeft:"0.3em", color:"white"}}>About Us</Link>
+<Link to="#" style={{marginLeft:"0.3em", color:"white"}}>Upcoming Events</Link>
+<Link to="/results" style={{marginLeft:"0.3em", color:"white"}}>Results</Link>
+<Link to="#" style={{marginLeft:"0.3em", color:"white"}}>Contact Us</Link>
+</Chat>
+<Chat>
+<Link to="#" style={{marginLeft:"0.3em", color:"white"}}>Terms & Conditions</Link>
+<Link to="#" style={{marginLeft:"0.3em", color:"white"}}>Privacy Policy</Link>
+<Link to="#" style={{marginLeft:"0.3em", color:"white"}}>Cancellation Policy</Link>
+</Chat>
+</Col>
+<Col>
+©2023 My Race India. All rights reserved.
+</Col>
+            </Row>
         </Container>
       </Extra>
     </>

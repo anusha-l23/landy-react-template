@@ -24,7 +24,7 @@ const EventBlock = () => {
     <Img>
       <img src={image1} alt="images" style={{width:"100vw"}} />
       </Img>
-    <div style={{ padding: "0em 5em" }}>
+    <div style={{ padding: "0em 5em", marginBottom:"2em" }}>
       <Heading>
         <div style={{ fontSize: "150%", fontWeight: "bold" }}>
           Latest Results

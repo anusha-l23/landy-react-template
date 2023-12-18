@@ -34,6 +34,7 @@ export const Extra = styled("section")`
   background: #181c26;
   position: relative;
   width: 100%;
+  color:white;
   margin-right: auto;
   margin-left: auto;
   padding-bottom: 2rem;
@@ -70,15 +71,14 @@ export const Large = styled(Link)`
 `;
 
 export const Chat = styled("p")`
-  color: #18216d;
+  color: white;
   max-width: fit-content;
-  border-bottom: 1px solid #18216d;
   cursor: pointer;
   margin-top: 1rem;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    border-bottom: 1px solid rgb(255, 130, 92);
+  
     color: rgb(255, 130, 92);
   }
 `;
@@ -88,8 +88,10 @@ export const Empty = styled("div")`
   height: 53px;
 `;
 
+
+
 export const FooterContainer = styled("div")`
-  max-width: 510px;
+  max-width: 200px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -107,12 +109,6 @@ export const FooterContainer = styled("div")`
     }
   }
 
-  @media screen and (max-width: 769px) {
-    width: auto;
-
-    a:not(:last-child) {
-      display: none;
-    }
   }
 
   div {

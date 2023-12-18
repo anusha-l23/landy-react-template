@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Row, Col, Drawer } from "antd";
 import { withTranslation, TFunction } from "react-i18next";
 import Container from "../../common/Container";
@@ -17,6 +17,7 @@ import {
   CustomNavLinkSmall,
   Label,
   Outline,
+  Flex1,
   Flex,
   Span,
 } from "./styles";
@@ -26,6 +27,21 @@ const Header = ({ t }: { t: TFunction }) => {
   const toggleButton = () => {
     setVisibility(!visible);
   };
+
+  const [isMobileView, setIsMobileView] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 768); 
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize); 
+
+    return () => {
+      window.removeEventListener("resize", handleResize); 
+    };
+  }, []);
   const location = useLocation();
   const { title }: { title?: string } = location.state || {}
   const [inputValues, setInputValues] = useState({title: title|| ""})
@@ -65,9 +81,9 @@ const Header = ({ t }: { t: TFunction }) => {
   };
 
   const inputStyle = {
-    borderBottom: '1px solid #9f1d21', // Specific border style
+    border: '1px solid #9f1d21', // Specific border style
    
-    padding: '0em 10em 0em 1em',
+    padding: '0em 3em 0em 1em',
     borderTop: 'none', // Remove top border
     borderLeft: 'none', // Remove left border
     borderRight: 'none',
@@ -81,9 +97,10 @@ const Header = ({ t }: { t: TFunction }) => {
   const selectdiv = {
     fontSize: "13px",
     padding: "1em",
+    width:"20%",
     color: "#000",
     marginTop:"0em",
-    borderBottom: '1px solid #9f1d21', 
+    border: '1px solid #9f1d21', 
     borderTop: 'none', // Remove top border
     borderLeft: 'none', // Remove left border
     borderRight: 'none',
@@ -122,8 +139,10 @@ const Header = ({ t }: { t: TFunction }) => {
       </Container>
     </HeaderSection>
   <HeaderSection1>
+    
   <Flex>
 <FlexInline>
+  <Flex1>
             <select style={selectdiv}>
               <option value="2023">2023</option>
               <option value="2022">2022</option>
@@ -138,13 +157,42 @@ const Header = ({ t }: { t: TFunction }) => {
               </select>
          
 <input style={inputStyle} name={title} value={inputValues.title} onChange={handleInputChange} placeholder="Enter your event name" />
+</Flex1>
 <input style={inputStyle} placeholder="Enter your BIB# or Name" />
 
 </FlexInline>
-<button style={{backgroundColor: '#9f1d21', border:"none", padding: '0em 1.5em 0em 1.5em', color:"white", fontWeight:"bold"}}>
+{/* <button style={{backgroundColor: '#9f1d21', border:"none", padding: '0em 1.5em 0em 1.5em', color:"white", fontWeight:"bold"}}>
 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21l-6-6m2-5a7 7 0 1 1-14 0a7 7 0 0 1 14 0"></path></svg>
-</button>
+</button> */}
+
+{isMobileView ? (
+        <button
+          style={{
+            backgroundColor: '#9f1d21',
+            border: "none",
+            padding: '0.5em 1em',
+            color: "white",
+            fontWeight: "bold",
+          }}
+        >
+          Search
+        </button>
+      ) : (
+        <button
+          style={{
+            backgroundColor: '#9f1d21',
+            border: "none",
+            padding: '0em 1.5em 0em 1.5em',
+            color: "white",
+            fontWeight: "bold",
+          }}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21l-6-6m2-5a7 7 0 1 1-14 0a7 7 0 0 1 14 0"></path></svg>
+          </button>
+      )}
+
 </Flex>
+
 </HeaderSection1>
 </>
   );
