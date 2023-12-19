@@ -32,7 +32,7 @@ const EventBlock = () => {
         <Link to="/results" style={{ color: "#9F2222" }}>View More</Link>
       </Heading>
       <Main>
-        {data.map((item) => {
+        {data.slice(0,4).map((item) => {
           return (
             <>
               <EventSection>
