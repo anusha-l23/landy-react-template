@@ -71,14 +71,14 @@ const Home = () => {
         direction="left"
         title={Scoring.title}
         content={Scoring.text}
-        icon="waving.svg"
+        icon="RESULT.svg"
         id=""
       />
 <ContentBlock
         direction="right"
         title={Participant.title}
         content={Participant.text}
-        icon="waving.svg"
+        icon="commu.svg"
         id=""
       />
       <Contact
