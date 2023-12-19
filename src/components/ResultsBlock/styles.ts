@@ -6,10 +6,14 @@ display:flex;
 gap:0px;
 flex-wrap:wrap;
 align-items:center;
+margin:1em;
 @media only screen and (max-width: 575px) {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+    align-items: center; 
+    height: 100vh; 
+  }
 }
 `;
 
@@ -23,7 +27,7 @@ padding:0em 2em;
 
 
 @media only screen and (max-width: 1024px) {
-  padding: 4rem 0 4rem;
+  padding: 0rem 0 0rem;
 }
 `;
 

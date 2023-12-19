@@ -121,7 +121,6 @@ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 position: sticky;
   top: 0;
   z-index:1;
-
 .ant-row-space-between {
   align-items: center;
   text-align: center;
@@ -129,7 +128,6 @@ position: sticky;
 
 @media only screen and (max-width: 768px) {
   width:100%;
-
 }
 `;
 
@@ -138,7 +136,7 @@ export const Flex = styled("div")`
 display: flex;
 margin-left:auto;
 margin-right:auto;
-width:80%;
+width:72%;
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   @media only screen and (max-width: 768px) {
     display: flex;

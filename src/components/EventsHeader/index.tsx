@@ -60,6 +60,7 @@ const Header = ({ t }: { t: TFunction }) => {
       });
       setVisibility(false);
     };
+
     return (
       <>
         <CustomNavLinkSmall onClick={() => {}}>
@@ -106,7 +107,8 @@ const Header = ({ t }: { t: TFunction }) => {
     borderRight: 'none',
     backgroundColor: "#fff",
    
-}
+  }
+
   return (
     <>
     
@@ -138,8 +140,7 @@ const Header = ({ t }: { t: TFunction }) => {
         </Drawer>
       </Container>
     </HeaderSection>
-  <HeaderSection1>
-    
+    <HeaderSection1>
   <Flex>
 <FlexInline>
   <Flex1>
@@ -161,9 +162,7 @@ const Header = ({ t }: { t: TFunction }) => {
 <input style={inputStyle} placeholder="Enter your BIB# or Name" />
 
 </FlexInline>
-{/* <button style={{backgroundColor: '#9f1d21', border:"none", padding: '0em 1.5em 0em 1.5em', color:"white", fontWeight:"bold"}}>
-<svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21l-6-6m2-5a7 7 0 1 1-14 0a7 7 0 0 1 14 0"></path></svg>
-</button> */}
+
 
 {isMobileView ? (
         <button
