@@ -71,7 +71,7 @@ const Home = () => {
         direction="left"
         title={Scoring.title}
         content={Scoring.text}
-        icon="RESULT.svg"
+        icon="2000RESULTRESIZE.svg"
         id=""
       />
 <ContentBlock
