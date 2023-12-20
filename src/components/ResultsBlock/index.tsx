@@ -3,9 +3,10 @@ import { Row, Col } from "antd";
 import { withTranslation } from "react-i18next";
 import { Button } from "../../common/Button";
 import { SvgIcon } from "../../common/SvgIcon";
-import { data } from "../../content/EventContent";
-import {Link} from "react-router-dom";
 
+import {Link} from "react-router-dom";
+import axios from "axios";
+import {useEffect, useState} from "react";
 import {
   EventSection,
   Content,
@@ -13,12 +14,27 @@ import {
   Main,
   Heading,
 } from "./styles";
-import { ResultBlockProps } from "./types";
 
 
-const ResultsBlock = ({id}: ResultBlockProps) => {
+interface Event {
+  id: number;
+  eventName: string;
+  location: string;
+  year: string;
+  eventPicture: string;
+}
 
-  console.log(data, "data");
+const ResultsBlock = () => {
+  const [events, setEvents] = useState<Event[]>([])
+  const fetchData = async()=> {
+    const response = await axios.get("http://localhost:3001/santarun/get-results");
+    setEvents(response.data);
+    console.log(response, "response")
+  }
+  useEffect(()=>{
+fetchData();
+  },[])
+
   return (
     <>
     <div style={{ padding: "0em 5em" }}>
@@ -28,28 +44,25 @@ const ResultsBlock = ({id}: ResultBlockProps) => {
         </div>
       </Heading>
       <Main>
-        {data.map((item) => {
+        {events.map((item) => {
           return (
             <>
              <Link
         to={{
           pathname: "/registration",
-          search: `?title=${encodeURIComponent(item.title)}`,
-          state: { title: item.title }, // Pass item.title as state to the registration page
+         // search: `?title=${encodeURIComponent(item.title)}`,
+         // state: { title: item.title }, // Pass item.title as state to the registration page
         }}>
               <EventSection>
                 <div>
-                  <img
-                    src={item.image}
-                    width="100%"
-                    height="100%"
-                    alt="images"
-                  />
-
-                  <Content>{item.title}</Content>
+                {item.eventPicture && typeof item.eventPicture === 'string' && (
+                <img src={`http://localhost:3001/${item.eventPicture.replace(/\\/g, '/')}`} width="100%" height="100%" alt="Event" />
+                 
+                )}
+                <Content>{item.eventName}</Content>
                   <Address>
-                    <div>{item.address}</div>
-                    <div>{item.date}</div>
+                    <div>{item.location}</div>
+                    <div>{item.year.split("T")[0]}</div>
                   </Address>
                   <div style={{ textAlign: "right"}}>
                     <button style={{ border: "none", background: "none" }}>
@@ -73,7 +86,7 @@ const ResultsBlock = ({id}: ResultBlockProps) => {
           );
         })}
       </Main>
-      <Heading>
+      {/* <Heading>
         <div style={{ fontSize: "150%", fontWeight: "bold" }}>
           Events
         </div>
@@ -116,7 +129,7 @@ const ResultsBlock = ({id}: ResultBlockProps) => {
             </>
           );
         })}
-      </Main>
+      </Main> */}
     </div>
     </>
   );

@@ -19,6 +19,11 @@ const routes = [
     exact: true,
     component: "Registration",
   },
+  {
+    path: ["/", "/createevent"],
+    exact: true,
+    component: "CreateEvent",
+  },
 ];
 
 export default routes;
