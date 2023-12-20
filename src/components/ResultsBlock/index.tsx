@@ -37,7 +37,7 @@ fetchData();
 
   return (
     <>
-    <div style={{ padding: "0em 5em" }}>
+    <div style={{ padding: "0em 5em 5em 5em" }}>
       <Heading>
         <div style={{ fontSize: "150%", fontWeight: "bold" }}>
           Latest Results
@@ -50,8 +50,8 @@ fetchData();
              <Link
         to={{
           pathname: "/registration",
-         // search: `?title=${encodeURIComponent(item.title)}`,
-         // state: { title: item.title }, // Pass item.title as state to the registration page
+          search: `?event=${encodeURIComponent(item.eventName)}`,
+          state: { title: item.eventName },
         }}>
               <EventSection>
                 <div>
