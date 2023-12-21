@@ -22,7 +22,7 @@ export const useForm = (validate: any) => {
     event.preventDefault();
     setErrors(validate(values));
     // Your url for API
-    const url = "";
+    const url = "http://localhost:3001/santarun/form-submit";
     if (Object.values(values).every((x) => x !== "")) {
       axios
         .post(url, {

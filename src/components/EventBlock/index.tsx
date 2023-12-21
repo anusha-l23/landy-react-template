@@ -4,7 +4,6 @@ import { withTranslation } from "react-i18next";
 import { Button } from "../../common/Button";
 import { SvgIcon } from "../../common/SvgIcon";
 import { data } from "../../content/EventContent";
-import image1 from "../../images/event-home.png";
 import { Link } from "react-router-dom";
 import {
   EventSection,
@@ -21,9 +20,7 @@ const EventBlock = () => {
   console.log(data, "data");
   return (
     <>
-    <Img>
-      <img src={image1} alt="images" style={{width:"100vw"}} />
-      </Img>
+  
     <div style={{ padding: "0em 5em", marginBottom:"2em" }}>
       <Heading>
         <div style={{ fontSize: "150%", fontWeight: "bold" }}>

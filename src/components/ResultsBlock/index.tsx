@@ -49,16 +49,16 @@ fetchData();
             <>
              <Link
         to={{
-          pathname: "/registration",
+          pathname: "/event-landing",
           search: `?event=${encodeURIComponent(item.eventName)}`,
           state: { title: item.eventName },
         }}>
               <EventSection>
                 <div>
-                {item.eventPicture && typeof item.eventPicture === 'string' && (
+                  <div style={{textAlign:"center"}}>
                 <img src={`http://localhost:3001/${item.eventPicture.replace(/\\/g, '/')}`} width="100%" height="100%" alt="Event" />
-                 
-                )}
+            
+                </div>
                 <Content>{item.eventName}</Content>
                   <Address>
                     <div>{item.location}</div>

@@ -140,7 +140,7 @@ const Header = ({ t }: { t: TFunction }) => {
         </Drawer>
       </Container>
     </HeaderSection>
-    <HeaderSection1>
+    {/* <HeaderSection1>
   <Flex>
 <FlexInline>
   <Flex1>
@@ -192,7 +192,7 @@ const Header = ({ t }: { t: TFunction }) => {
 
 </Flex>
 
-</HeaderSection1>
+</HeaderSection1> */}
 </>
   );
 };

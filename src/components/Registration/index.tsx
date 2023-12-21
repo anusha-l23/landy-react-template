@@ -5,11 +5,6 @@ import { Link } from "react-router-dom";
 const Registration = () => {
   return (
     <div style={{margin:"2em"}}>
-      <img
-        src="https://admin.myraceindia.com/assets/bannerimage/common_ebanner.png"
-        alt="images"
-        style={{ width: "100vw" }}
-      />
       <div>
         <Form>
           <div className="container">
