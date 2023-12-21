@@ -24,6 +24,11 @@ const routes = [
     exact: true,
     component: "CreateEvent",
   },
+  {
+    path: ["/", "/eventlanding"],
+    exact: true,
+    component: "EventLanding",
+  },
 ];
 
 export default routes;
