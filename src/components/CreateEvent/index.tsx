@@ -194,19 +194,24 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 
+interface Category {
+  name: string;
+  amount: string;
+}
+
 const CreateEvent = () => {
   const [eventName, setEventName] = useState('');
   const [location, setLocation] = useState('');
   const [year, setYear] = useState('');
 
   const [eventPicture, setEventPicture] = useState("");
-  const [categories, setCategories] = useState([{ name: '', amount: '' }]);
+  const [categories, setCategories] = useState<Category[]>([{ name: '', amount: '' }]);
   const [showCategories, setShowCategories] = useState(false);
 const handleFileChange = (event:any) => {
   setEventPicture(event.target.files[0])
 }
 
-const handleCategoryChange = (index, key, value) => {
+const handleCategoryChange = (index:number, key: keyof Category, value: string) => {
   const updatedCategories = [...categories];
   updatedCategories[index][key] = value;
   setCategories(updatedCategories);
@@ -219,7 +224,7 @@ const addCategoryInput = () => {
 const generateUniqueId = () => {
   return Math.random().toString(36).substr(2, 9);
 };
-const removeCategory = (index) => {
+const removeCategory = (index: number) => {
   const updatedCategories = [...categories];
   updatedCategories.splice(index, 1);
   setCategories(updatedCategories);

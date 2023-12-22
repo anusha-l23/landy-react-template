@@ -23,6 +23,10 @@ import {
   SecondDiv,
 } from "./styles";
 
+interface Category {
+  name: string;
+  amount: string;
+}
 
 interface Event {
   id: number;
@@ -30,8 +34,7 @@ interface Event {
   location: string;
   year: string;
   eventPicture: string;
-  categoryName: string;
-  categoryAmount: number;
+  categoryDetails: Category[]
 }
 
 const EventLanding = () => {
@@ -158,23 +161,24 @@ else{
     </tr>
   </thead>
   <tbody>
-    <tr>
-    {event && 
-      <td>{event.categoryName}</td>
-    }
-     {event && 
-      <td>{event.categoryAmount}</td>
-    }
-      <td>
-        <Flex>
-          <button style={buttonStyle} onClick={decrement1}>-</button>
-          <Box>{count1}</Box>
-          <button style={buttonStyle} onClick={increment1}>+</button>
-        </Flex>
-      </td>
-      <td><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M13.725 21L7 14v-2h3.5q1.325 0 2.288-.862T13.95 9H6V7h7.65q-.425-.875-1.263-1.437T10.5 5H6V3h12v2h-3.25q.35.425.625.925T15.8 7H18v2h-2.025q-.2 2.125-1.75 3.563T10.5 14h-.725l6.725 7z"></path></svg> {amount1}</td>
-    </tr>
-    <tr>
+    {event?.categoryDetails.map((item)=>{
+      return (
+        <tr>
+        <td>{item.name}</td>
+          <td>{item.amount}</td>
+          <td>
+            <Flex>
+              <button style={buttonStyle} onClick={decrement1}>-</button>
+              <Box>{count1}</Box>
+              <button style={buttonStyle} onClick={increment1}>+</button>
+            </Flex>
+          </td>
+          <td><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M13.725 21L7 14v-2h3.5q1.325 0 2.288-.862T13.95 9H6V7h7.65q-.425-.875-1.263-1.437T10.5 5H6V3h12v2h-3.25q.35.425.625.925T15.8 7H18v2h-2.025q-.2 2.125-1.75 3.563T10.5 14h-.725l6.725 7z"></path></svg> {amount1}</td>
+        </tr>
+      )
+    })}
+   
+    {/* <tr>
       <td>10KM</td>
       <td>450</td>
       <td className="text-center">
@@ -209,7 +213,7 @@ else{
         </Flex>
       </td>
       <td><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M13.725 21L7 14v-2h3.5q1.325 0 2.288-.862T13.95 9H6V7h7.65q-.425-.875-1.263-1.437T10.5 5H6V3h12v2h-3.25q.35.425.625.925T15.8 7H18v2h-2.025q-.2 2.125-1.75 3.563T10.5 14h-.725l6.725 7z"></path></svg> {amount4}</td>
-    </tr>
+    </tr> */}
   </tbody>
 </table>
 <div className="text-center my-3">
