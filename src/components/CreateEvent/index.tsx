@@ -60,7 +60,7 @@ try {
     <div style={{margin:"2em"}}>
     
       <div>
-        <Form>
+        
           <div className="container">
             <div className="row" style={{marginTop:"1em"}}>
               <div className="col-md-6">
@@ -176,12 +176,12 @@ try {
             </div>
             <div style={{textAlign:"center", marginTop:"1em"}}>
              
-              <button className="btn btn-primary" onClick={handleSubmit}>
+              <button className="btn btn-primary" type="submit" onClick={handleSubmit}>
                 Create Event
               </button>
             </div>
           </div>
-        </Form>
+
      
       </div>
     </div>
