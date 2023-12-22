@@ -1,11 +1,35 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import {Container, Row,Col} from "reactstrap";
 const Registration = () => {
+//   const location = useLocation();
+//   const totalCount = location.state?.totalCount;
+// const totalAmount = location.state?.totalAmount;
+// const eventName = new URLSearchParams(location.search).get("event");
+// console.log(totalCount, totalAmount, eventName, "total")
   return (
-    <div style={{margin:"2em"}}>
-      <div>
+    <div style={{backgroundColor:"#F1F1F1", padding:"3em 10em 3em 10em"}}>
+      <div style={{backgroundColor:"white", border:"1px solid lightgray"}}>
+      {/* <div style={{borderBottom:"2px solid yellow", padding:"1em"}}>
+<Container>
+  <Row>
+    <Col>
+    <div style={{borderLeft:"2px solid yellow", padding:"1em"}}>{eventName}</div>
+
+    </Col>
+    <Col>
+    <div style={{borderLeft:"2px solid yellow", padding:"1em"}}>{totalCount} SELECTED </div></Col>
+    <Col>
+    <div style={{borderLeft:"2px solid yellow", padding:"1em"}}>
+    {totalAmount}/- (REGISTRATION FEE)
+    </div>
+    </Col>
+  </Row>
+</Container>
+
+      </div> */}
         <Form>
           <div className="container">
             <p>
@@ -369,15 +393,15 @@ const Registration = () => {
               <div className="col-md-6"> </div>
             </div>
 
-            <div className="d-flex flex-row justify-content-between mx-5 align-items-center">
-              <Link to="/event-page" className="btn btn-primary">
+            <div className="d-flex flex-row justify-content-between mx-5 my-3 align-items-center">
+              {/* <Link to="/event-page" className="btn btn-primary">
                 Back
               </Link>
               <img
                 width="80px"
                 alt=""
                 src="https://myraceindia.com/Live_API/assets/jotform/MRTS_Logo_with_Powered_by.png"
-              />
+              /> */}
               <button className="btn btn-primary" type="submit">
                 Signup
               </button>

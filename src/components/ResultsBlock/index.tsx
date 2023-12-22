@@ -40,7 +40,7 @@ fetchData();
     <div style={{ padding: "0em 5em 5em 5em" }}>
       <Heading>
         <div style={{ fontSize: "150%", fontWeight: "bold" }}>
-          Upcoming Results
+          Upcoming Events
         </div>
       </Heading>
       <Main>
@@ -51,7 +51,6 @@ fetchData();
         to={{
           pathname: "/eventlanding",
           search: `?event=${encodeURIComponent(item.eventName)}`,
-          state: { title: item.eventName },
         }}>
               <EventSection>
                 <div>

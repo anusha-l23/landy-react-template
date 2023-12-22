@@ -9,10 +9,28 @@ const CreateEvent = () => {
   const [eventName, setEventName] = useState('');
   const [location, setLocation] = useState('');
   const [year, setYear] = useState('');
+  const [categoryName, setCategoryName] = useState("");
+  const [categoryAmount, setCategoryAmount] = useState(0);
   const [eventPicture, setEventPicture] = useState("");
-  
+  const [toggleCategory, setToggleCategory] = useState(false)
 const handleFileChange = (event:any) => {
   setEventPicture(event.target.files[0])
+}
+
+const handleAmountChange = (e:any) => {
+  const inputAmount = e.target.value;
+
+  if (!isNaN(inputAmount)) {
+    setCategoryAmount(parseInt(inputAmount, 10)); 
+  }
+
+};
+const toggleButton = () => {
+  if (toggleCategory) {
+    setCategoryName(""); 
+    setCategoryAmount(0); 
+  }
+  setToggleCategory((prevState) => !prevState);
 }
 
 const handleSubmit = async (event:any)=>{
@@ -22,6 +40,8 @@ try {
   formData.append('eventName', eventName);
       formData.append('location', location);
       formData.append('year', year);
+      formData.append('categoryName', categoryName);
+      formData.append('categoryAmount', categoryAmount.toString());
       formData.append('eventPicture', eventPicture);
 
        await axios.post("http://localhost:3001/santarun/create-event", formData, {
@@ -92,6 +112,49 @@ try {
 
               <div className="col-md-6"></div>
             </div>
+            <div className="row" style={{marginTop:"1em"}}>
+            <div className="col-md-6">
+              <button onClick={toggleButton}>Add Category</button>
+            </div>
+            <div className="col-md-6"></div>
+            </div>
+            {toggleCategory && 
+            <>
+            <div className="row" style={{marginTop:"1em"}}>
+            <div className="col-md-6">
+            <label htmlFor="categoryname">
+                  Category Name
+                </label>
+            <input
+                  type="text"
+                  className="form-control"
+                  id="categoryname"
+                  name="categoryname"
+                  value={ categoryName }
+                  onChange={(e)=>setCategoryName(e.target.value) }
+                />
+            </div>
+            <div className="col-md-6"></div>
+            </div>
+     <div className="row" style={{marginTop:"1em"}}>
+           
+     <div className="col-md-6">
+     <label htmlFor="categoryamount">
+           Category Amount
+         </label>
+     <input
+           type="text"
+           className="form-control"
+           id="categoryamount"
+           name="categoryamount"
+           value={ categoryAmount }
+           onChange={handleAmountChange}
+         />
+     </div>
+     </div>
+     </>
+            }      
+
             <div className="row" style={{marginTop:"1em"}}>
               <div className="col-md-6">
                 <label htmlFor="eventpicture">

@@ -62,6 +62,8 @@ height:1em;
 justify-content:space-between;
 `;
 
+
+
 export const StyledRow = styled(Row)`
   flex-direction: ${({ direction }: { direction: string }) =>
     direction === "left" ? "row" : "row-reverse"};
@@ -124,4 +126,20 @@ border-radius:50%;
 export const Box = styled("div")`
 border:1px solid lightgray;
 padding:0.2em 1em;
+`;
+
+export const FlexTable = styled.div`
+  display: flex;
+gap:30px;
+  width: 100%;
+`;
+
+export const FirstDiv = styled.div`
+  /* Adjust the width of the first div */
+  width: 70%; /* for example */
+`;
+
+export const SecondDiv = styled.div`
+  /* Adjust the width of the second div */
+  width: 30%; /* for example */
 `;
