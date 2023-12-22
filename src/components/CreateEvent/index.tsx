@@ -28,7 +28,7 @@ const handleAmountChange = (e:any) => {
 const toggleButton = () => {
   if (toggleCategory) {
     setCategoryName(""); 
-    setCategoryAmount(0); 
+    setCategoryAmount(0);
   }
   setToggleCategory((prevState) => !prevState);
 }
@@ -44,11 +44,12 @@ try {
       formData.append('categoryAmount', categoryAmount.toString());
       formData.append('eventPicture', eventPicture);
 
-       await axios.post("http://localhost:3001/santarun/create-event", formData, {
+      await axios.post("http://localhost:3001/santarun/create-event", formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
     });
+
   } catch (error) {
   console.error(error)
   throw new Error("Failed in event creation");;
@@ -59,7 +60,7 @@ try {
     <div style={{margin:"2em"}}>
     
       <div>
-        <Form onSubmit={handleSubmit}>
+        <Form>
           <div className="container">
             <div className="row" style={{marginTop:"1em"}}>
               <div className="col-md-6">
@@ -175,7 +176,7 @@ try {
             </div>
             <div style={{textAlign:"center", marginTop:"1em"}}>
              
-              <button className="btn btn-primary" type="submit">
+              <button className="btn btn-primary" onClick={handleSubmit}>
                 Create Event
               </button>
             </div>

@@ -30,6 +30,8 @@ interface Event {
   location: string;
   year: string;
   eventPicture: string;
+  categoryName: string;
+  categoryAmount: number;
 }
 
 const EventLanding = () => {
@@ -157,8 +159,12 @@ else{
   </thead>
   <tbody>
     <tr>
-      <td>21KM</td>
-      <td>550</td>
+    {event && 
+      <td>{event.categoryName}</td>
+    }
+     {event && 
+      <td>{event.categoryAmount}</td>
+    }
       <td>
         <Flex>
           <button style={buttonStyle} onClick={decrement1}>-</button>
