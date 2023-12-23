@@ -288,11 +288,12 @@ const findEvent = events.find(event => event && event.eventName === eventname)
 
 console.log(findEvent, "find")
 
+
+
 useEffect(()=>{
   const eventId = findEvent ? findEvent.id : null;
   formik.setFieldValue('eventId', eventId);
-}, [findEvent]); // Add dependencies as needed
-
+}, [findEvent]);
 const formik = useFormik({
   initialValues: {
 firstName: '',
@@ -439,7 +440,9 @@ acceptedTerms:Yup.boolean().required('This field is required'),
                                             {formik.touched.email && formik.errors.email ? (
                                             <FormFeedback type="invalid"><div>{formik.errors.email}</div></FormFeedback>
                                             ) : null}
-                
+ {(formik.touched.email && !/@/.test(formik.values.email)) && 
+  <div className='text-danger'>Email should contain @</div>
+}
               </div>
 
               <div className="col-md-6"></div>
@@ -465,9 +468,9 @@ acceptedTerms:Yup.boolean().required('This field is required'),
                   {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
                   <FormFeedback type="invalid"><div>{formik.errors.mobileNumber}</div></FormFeedback>
                   ) : null}
-                  {formik.values.mobileNumber.startsWith(String(0)) && 
-                  <div className='text-danger font-weight-bold'>Do Not start with 0</div>
-                  }
+                  {(/^0|^(\+91)/).test(formik.values.mobileNumber) && 
+  <div className='text-danger font-weight-bold'>Do not start with 0 or +91</div>
+}
               </div>
               <div className="col-md-6"></div>
             </div>
@@ -941,11 +944,13 @@ acceptedTerms:Yup.boolean().required('This field is required'),
                   value={formik.values.contactNumber || ""}
                  
                 />
-                {(formik.values.contactNumber.startsWith(String(91)) || formik.values.contactNumber.startsWith(String(91))) &&
-                  <div className='text-sm mt-2'>DO NOT start with 91 or 0</div>}
+
                 {formik.touched.contactNumber && formik.errors.contactNumber ? (
                   <FormFeedback type="invalid"><div>{formik.errors.contactNumber}</div></FormFeedback>
                 ) : null}
+                                {(/^0|^(\+91)/).test(formik.values.contactNumber) && 
+  <div className='text-danger font-weight-bold'>Do not start with 0 or +91</div>
+}
               </div>
               <div className="col-md-6"></div>
             </div>

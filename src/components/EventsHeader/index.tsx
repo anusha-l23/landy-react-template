@@ -70,11 +70,11 @@ const Header = ({ t }: { t: TFunction }) => {
           <Span>{t("Calender")}</Span>
           </CustomNavLinkSmall>
         <CustomNavLinkSmall onClick={() => {}}>
-        <Link to="/results">
+      
         <Span style={{ color: window.innerWidth <= 768 ? "#18216d" : "white" }}>
         {t("Results")}
   </Span>
-          </Link>
+       
         </CustomNavLinkSmall>
       
       </>
