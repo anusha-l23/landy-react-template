@@ -13,6 +13,7 @@ import {
   Address,
   Main,
   Heading,
+  CreateEvent,
 } from "./styles";
 
 
@@ -38,6 +39,9 @@ fetchData();
   return (
     <>
     <div style={{ padding: "0em 5em 5em 5em" }}>
+      <CreateEvent>
+        <Link to="/createevent" className="btn btn-primary">Create Event</Link>
+      </CreateEvent>
       <Heading>
         <div style={{ fontSize: "150%", fontWeight: "bold" }}>
           Upcoming Events

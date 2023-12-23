@@ -20,7 +20,7 @@ margin:1em;
 export const Heading = styled("section")`
 display:flex;
 justify-content: space-between;
-margin-top:4em;
+margin-top:2em;
 margin-bottom:2em;
 position: relative;
 padding:0em 2em;
@@ -106,3 +106,7 @@ export const ButtonWrapper = styled("div")`
     margin-left: 20px;
   }
 `;
+export const CreateEvent = styled("div")`
+  text-align:right;  
+  margin-top:1em;
+  }`;

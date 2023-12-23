@@ -93,3 +93,9 @@ export const Span = styled("span")`
     text-decoration: rgb(255, 130, 92) wavy underline;
   }
 `;
+export const StyleLink = styled(Link)`
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+`;

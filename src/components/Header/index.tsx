@@ -15,6 +15,7 @@ import {
   Label,
   Outline,
   Span,
+  StyleLink,
 } from "./styles";
 
 const Header = ({ t }: { t: TFunction }) => {
@@ -44,9 +45,9 @@ const Header = ({ t }: { t: TFunction }) => {
           <Span>{t("Services")}</Span>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall onClick={() => {}}>
-          <Link to="/events">
+          <StyleLink to="/events">
           <Span>{t("Events")}</Span>
-          </Link>
+          </StyleLink>
           </CustomNavLinkSmall>
         <CustomNavLinkSmall
           style={{ width: "180px" }}

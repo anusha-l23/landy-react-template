@@ -360,11 +360,12 @@ const Registration = () => {
       acceptedTerms: Yup.boolean().required("This field is required"),
     }),
 
-    onSubmit: async (values) => {
+    onSubmit: async (values, {resetForm}) => {
       console.log(values, "values");
       try {
         await axios.post("http://localhost:3001/santarun/register", values);
         console.log("Registration successful!");
+        resetForm();
       } catch (error) {
         console.error(error);
       }
@@ -822,128 +823,46 @@ const Registration = () => {
                 </FormFeedback>
               ) : null}
             </Flex>
-
-            <div className="form-group" style={{ marginTop: "1em" }}>
-              <div>
-                <label>
-                  {" "}
+<div className="row" style={{ marginTop: "1em" }}>
+              <div className="col-md-6">
+                <label htmlFor="tshirtsize">
                   T-Shirt Size <span className="text-danger">*</span>
                 </label>
-              </div>
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  id="s"
-                  style={{ transform: "scale(1.2)", marginLeft: "0.1em" }}
+                {/* eslint-disable */}
+                <select
+                  id="tshirtsize"
+                  className=""
                   name="tShirtSize"
-                  value="S"
-                  checked={formik.values.tShirtSize === "S"}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  style={{
+                    width: "100%",
+                    padding: "0.4em",
+                    borderRadius: "7px",
+                    outline: "none",
+                    border: "1px solid lightgray",
+                    color: "gray",
+                  }}
+                  onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
                     formik.handleChange(e)
                   }
-                  required
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="s"
-                  style={{ marginLeft: "2em" }}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.tShirtSize || ""}
                 >
-                  S
-                </label>
+                  {formik.touched.tShirtSize && formik.errors.tShirtSize ? (
+                    <FormFeedback type="invalid">
+                      <div>{formik.errors.tShirtSize}</div>
+                    </FormFeedback>
+                  ) : null}
+                  <option value="">Please Select</option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
+                  <option value="XXL">XXL</option>
+                </select>
               </div>
+              <div className="col-md-6"></div>
+            </div>
 
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  id="m"
-                  style={{ transform: "scale(1.2)", marginLeft: "0.8em" }}
-                  name="tShirtSize"
-                  value="M"
-                  checked={formik.values.tShirtSize === "M"}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    formik.handleChange(e)
-                  }
-                  required
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="m"
-                  style={{ marginLeft: "2em" }}
-                >
-                  M
-                </label>
-              </div>
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  id="l"
-                  style={{ transform: "scale(1.2)", marginLeft: "0.1em" }}
-                  name="tShirtSize"
-                  value="L"
-                  checked={formik.values.tShirtSize === "L"}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    formik.handleChange(e)
-                  }
-                  required
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="l"
-                  style={{ marginLeft: "2em" }}
-                >
-                  L
-                </label>
-              </div>
-            </div>
-            <div className="form-group">
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  id="xl"
-                  style={{ transform: "scale(1.2)", marginLeft: "0.1em" }}
-                  name="tShirtSize"
-                  value="XL"
-                  checked={formik.values.tShirtSize === "XL"}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    formik.handleChange(e)
-                  }
-                  required
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="xl"
-                  style={{ marginLeft: "2em" }}
-                >
-                  XL
-                </label>
-              </div>
-              <div className="form-check form-check-inline">
-                <input
-                  className="form-check-input"
-                  type="radio"
-                  id="xxl"
-                  style={{ transform: "scale(1.2)", marginLeft: "0.1em" }}
-                  name="tShirtSize"
-                  value="XXL"
-                  checked={formik.values.tShirtSize === "XXL"}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    formik.handleChange(e)
-                  }
-                  required
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="xxl"
-                  style={{ marginLeft: "2em" }}
-                >
-                  XXL
-                </label>
-              </div>
-            </div>
             <div className="row" style={{ marginTop: "1em" }}>
               <div className="col-md-6">
                 <label htmlFor="bib">
@@ -1134,7 +1053,7 @@ const Registration = () => {
               <div className="col-md-6"> </div>
             </div>
 
-            <div className="d-flex flex-row justify-content-between mx-5 my-3 align-items-center">
+            <div className="text-center my-4">
               {/* <Link to="/event-page" className="btn btn-primary">
                 Back
               </Link>
@@ -1144,7 +1063,7 @@ const Registration = () => {
                 src="https://myraceindia.com/Live_API/assets/jotform/MRTS_Logo_with_Powered_by.png"
               /> */}
               <button className="btn btn-primary" type="submit">
-                Signup
+                Proceed to another participant
               </button>
             </div>
           </div>
