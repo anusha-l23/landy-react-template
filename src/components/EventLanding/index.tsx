@@ -95,7 +95,7 @@ const handleDecrement = (categoryName: string, amount: number) => {
   const eventName = new URLSearchParams(location.search).get("event");
   const event = events.find(event => event.eventName === eventName);
   console.log(event, "get event from url");
-
+console.log(event?.categoryDetails,"categoryDetails")
   const dateString: string = event?.year || "";
   let formattedDate: string = "";
   if (dateString) {
@@ -167,7 +167,30 @@ else{
   }} className="btn btn-danger px-4 rounded">Register</Link>
 }
 </div>
-<table className="table table-bordered">
+
+    </FirstDiv>
+    <SecondDiv>
+      {event &&
+    <table className="table table-bordered">
+  <thead className="thead-dark text-center">
+  <tr>
+      <th scope="col">Event Details</th>
+    </tr>
+    </thead>
+  <tbody>
+    <tr>
+      <td>{formattedDate}</td>
+      </tr>
+      <tr>
+      <td>{event.location}</td>
+      </tr>
+  </tbody>
+</table>
+}
+    </SecondDiv>
+    
+    </FlexTable>
+    <table className="table table-bordered">
   <thead className="thead-dark">
   <tr>
  
@@ -206,28 +229,6 @@ Join us on the 7th of January 2024, and let's run together towards fitness, adve
          </tr>
     </tbody>
     </table>
-    </FirstDiv>
-    <SecondDiv>
-      {event &&
-    <table className="table table-bordered">
-  <thead className="thead-dark text-center">
-  <tr>
-      <th scope="col">Event Details</th>
-    </tr>
-    </thead>
-  <tbody>
-    <tr>
-      <td>{formattedDate}</td>
-      </tr>
-      <tr>
-      <td>{event.location}</td>
-      </tr>
-  </tbody>
-</table>
-}
-    </SecondDiv>
-    
-    </FlexTable>
     </div>
     </>
   );

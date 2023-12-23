@@ -132,14 +132,25 @@ export const FlexTable = styled.div`
   display: flex;
 gap:30px;
   width: 100%;
+  @media (max-width: 575px) {
+    flex-direction: column;
+    align-items: stretch; 
+ 
+  }
 `;
 
 export const FirstDiv = styled.div`
-  /* Adjust the width of the first div */
-  width: 70%; /* for example */
+ 
+  width: 70%;
+  @media (max-width: 575px) {
+  width:100%;
+  }
 `;
 
 export const SecondDiv = styled.div`
-  /* Adjust the width of the second div */
-  width: 30%; /* for example */
+
+  width: 30%;
+  @media (max-width: 575px) {
+    width:100%;
+    } 
 `;
