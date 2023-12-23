@@ -958,28 +958,33 @@ acceptedTerms:Yup.boolean().required('This field is required'),
               <div className="col-md-6"></div>
             </div>
 
-            <div className="row" style={{marginTop:"1em"}}>
-              <div className="col-md-6">
-              <Input
-                type="checkbox"
-                name="acceptedTerms"
-                className="form-check-input"
-                id="acceptedTerms"
-                checked={formik.values.acceptedTerms}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => formik.handleChange(e)}
-                required
-              />
-              {formik.touched.acceptedTerms && formik.errors.acceptedTerms ? (
-                <FormFeedback type="invalid"><div>{formik.errors.acceptedTerms}</div></FormFeedback>
-              ) : null}
+            <div className="d-flex flex-inline" style={{ marginTop: "1em" }}>
+  
+    <div className="form-check">
+      <Input
+        type="checkbox"
+        name="acceptedTerms"
+        className="form-check-input"
+        id="acceptedTerms"
+        checked={formik.values.acceptedTerms}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          formik.handleChange(e)
+        }
+        required
+      />
+      </div>
+      <div>
+      <label
+        className="form-check-label"
+        htmlFor="acceptedTerms"
+        style={{ marginLeft: "0.5em"}} // Adjust the margin for spacing
+      >
+        Agree to terms and conditions
+      </label>
+    </div>
+  
 
-                <label className="form-check-label" htmlFor="acceptedTerms" style={{marginLeft:"0.5em"}}>
-                  {" "}
-                  Agree to terms and conditions
-                </label>
-              </div>
-              <div className="col-md-6"> </div>
-            </div>
+</div>
             <div className="row" style={{marginTop:"1em"}}>
               <div className="col-md-6">
                 <Link to="#">click here</Link> to read the terms & conditions
