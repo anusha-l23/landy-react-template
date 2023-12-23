@@ -16,8 +16,17 @@ interface Event {
   location: string;
   year: string;
   eventPicture: string;
-  categoryName: string;
-  categoryAmount: number;
+  categoryDetails: Category[],
+  aboutEvent:string;
+  orgEmail:string,
+  contactNum:string,
+  regOpenDate:string;
+  regCloseDate: string;
+
+}
+interface Category {
+  name: string;
+  amount: string;
 }
 
 const Registration = () => {
@@ -331,6 +340,7 @@ const Registration = () => {
       state: "",
       country: "",
       personStatus: "",
+      organization:"",
       medicalIssue: "",
       acceptedTerms: false,
     },
@@ -356,6 +366,7 @@ const Registration = () => {
       state: Yup.string().required("This field is required"),
       country: Yup.string().required("This field is required"),
       personStatus: Yup.string().required("This field is required"),
+      organization: Yup.string().required("This field is required"),
       medicalIssue: Yup.string().required("This field is required"),
       acceptedTerms: Yup.boolean().required("This field is required"),
     }),
@@ -723,6 +734,34 @@ const Registration = () => {
               </div>
             </div>
             
+            {formik.values.personStatus && (
+               <div className="row" style={{ marginTop: "1em" }}>
+               <div className="col-md-6">
+                 <label htmlFor="organization">
+                 {formik.values.personStatus === "student" ? "Student Organization" : "Employee Company"}
+                 </label>
+                 <input
+                   type="text"
+                   className="form-control"
+                   id="organization"
+                   name="organization"
+                   onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                     formik.handleChange(e)
+                   }
+                   onBlur={formik.handleBlur}
+                   value={formik.values.organization || ""}
+                 />
+                 {formik.touched.organization && formik.errors.organization ? (
+                   <FormFeedback type="invalid">
+                     <div>{formik.errors.organization}</div>
+                   </FormFeedback>
+                 ) : null}
+               </div>
+ 
+               <div className="col-md-6"></div>
+             </div>
+ 
+            )}
             <div className="form-group" style={{ marginTop: "1em" }}>
               <div>
                 <label>
