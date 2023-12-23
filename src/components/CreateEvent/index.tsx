@@ -16,6 +16,12 @@ const CreateEvent = () => {
   const history = useHistory();
   const [eventName, setEventName] = useState("");
   const [location, setLocation] = useState("");
+  const [aboutEvent, setAboutEvent] = useState("");
+  const [orgEmail, setOrgEmail] = useState("");
+  const [contactNum, setContactNum] = useState("");
+  const [regOpenDate, setRegOpenDate] = useState(new Date())
+  const [regCloseDate, setRegCloseDate] = useState(new Date())
+
   //const [year, setYear] = useState('');
   const [year, setYear] = useState(new Date());
 
@@ -30,11 +36,18 @@ const CreateEvent = () => {
     setYear(date);
   };
 
-  const handleYearChange = (date: any) => {
-    setSelectedYear(date.getFullYear());
+  const handleRegOpenDayChange = (date: any) => {
+    setRegOpenDate(date);
+  };
+  const handleRegCloseDayChange = (date: any) => {
+    setRegCloseDate(date);
   };
 
-  const selectedDate = new Date(selectedYear, year.getMonth(), year.getDate());
+  // const handleYearChange = (date: any) => {
+  //   setSelectedYear(date.getFullYear());
+  // };
+
+  // const selectedDate = new Date(selectedYear, year.getMonth(), year.getDate());
 
   const handleFileChange = (event: any) => {
     setEventPicture(event.target.files[0]);
@@ -72,6 +85,11 @@ const CreateEvent = () => {
       const formData = new FormData();
       formData.append("eventName", eventName);
       formData.append("location", location);
+      formData.append("aboutEvent", aboutEvent);
+      formData.append("orgEmail", orgEmail);
+      formData.append("contactNum", contactNum);
+      formData.append("regOpenDate", regOpenDate.toISOString());
+      formData.append("regCloseDate", regCloseDate.toISOString());
       //formData.append('year', year);
       formData.append("year", year.toISOString());
 
@@ -233,6 +251,87 @@ const CreateEvent = () => {
               </div>
               <div className="col-md-6"></div>
             </div>
+          </div>
+          <div className="row" style={{ marginTop: "0em" }}>
+            <div className="col-md-6">
+              <label htmlFor="aboutevent">About Event</label>
+              <textarea
+  className="form-control"
+  id="aboutevent"
+  name="aboutEvent"
+  value={aboutEvent}
+  onChange={(e) => setAboutEvent(e.target.value)}
+  rows={4}
+/>
+            </div>
+
+            <div className="col-md-6"></div>
+          </div>
+          <Flex>
+            
+            <label htmlFor="regopendate">registartion open date and time</label>
+         
+         
+            <DatePicker
+              className="form-control"
+              selected={regOpenDate}
+              onChange={handleRegOpenDayChange}
+              dateFormat="MMMM d, yyyy h:mm aa"
+            />
+          
+        </Flex>
+        <Flex>
+            
+            <label htmlFor="regclosedate">registartion close date and time</label>
+         
+         
+            <DatePicker
+              className="form-control"
+              selected={regCloseDate}
+              onChange={handleRegCloseDayChange}
+              dateFormat="MMMM d, yyyy h:mm aa"
+            />
+          
+        </Flex>
+
+        <div className="row" style={{ marginTop: "1em" }}>
+            <div className="col-md-6">
+              <label htmlFor="orgemail">Organizer Email</label>
+              <input
+                type="email"
+                className="form-control"
+                id="orgemail"
+                name="orgEmail"
+                value={orgEmail}
+                onChange={(e) => setOrgEmail(e.target.value)}
+              />
+            </div>
+
+            <div className="col-md-6"></div>
+          </div>
+          <div className="row" style={{ marginTop: "1em" }}>
+            <div className="col-md-6">
+            {orgEmail && !orgEmail.includes("@") && (
+                  <div className="text-danger">Email should contain @</div>
+                )}
+            </div>
+            <div className="col-md-6">
+</div>
+</div>
+          <div className="row" style={{ marginTop: "1em" }}>
+            <div className="col-md-6">
+              <label htmlFor="conatctnum">Contact Number</label>
+              <input
+                type="text"
+                className="form-control"
+                id="conatctnum"
+                name="conatctNum"
+                value={contactNum}
+                onChange={(e) => setContactNum(e.target.value)}
+              />
+            </div>
+
+            <div className="col-md-6"></div>
           </div>
           <div style={{ textAlign: "center", marginTop: "1em" }}>
             <button

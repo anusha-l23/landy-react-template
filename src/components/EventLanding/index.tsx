@@ -34,7 +34,13 @@ interface Event {
   location: string;
   year: string;
   eventPicture: string;
-  categoryDetails: Category[]
+  categoryDetails: Category[],
+  aboutEvent:string;
+  orgEmail:string,
+  contactNum:string,
+  regOpenDate:string;
+  regCloseDate: string;
+
 }
 
 const EventLanding = () => {
@@ -202,30 +208,12 @@ else{
     </thead>
     <tbody>
  <tr>
+  {event &&
     <td>
         
-        <div>Welcome to the Kakinada Marathon 2024! We're thrilled to announce the next edition of this exciting event, which promises to be bigger and better than ever. Mark your calendars for the 7th of January 2024 as we gather on the stunning NTR Beach Road for a day filled with enthusiasm, camaraderie, and a test of your endurance.</div>
-   <div>The Kakinada Marathon is not just a race; it's an experience that celebrates fitness, unity, and the picturesque beauty of Kakinada. Whether you're a seasoned runner or a novice looking for a challenge, this event offers a variety of race categories to suit everyone.</div>
-   <div>Race categories:-</div>
-   <ol>
-    <li>
-  Full Marathon (42.195 km): For the most dedicated runners, this is the ultimate test of endurance.</li>
-   <li>
-Half Marathon (21.097 km): A popular choice for those looking for a significant challenge.</li>
- <li>10K Run Ideal for those who want to push their limits in a more approachable distance.</li>
-<li>5K Run Great for families to participate along the beautiful Kakinada Beach.</li>
- <li>3K Fun Run Perfect for beginners and families to enjoy a fun run along the scenic NTR Beach Road.</li>
- </ol>
-  <div>Exco Date:- From Date:  6/1/20234To  Date:  6/1/2024.</div>
-<div>NTR Beach Road, with its breathtaking sea views and serene atmosphere, provides the perfect backdrop for this marathon. Runners will be treated to a scenic coastal route, and the cool ocean breeze will invigorate and motivate you to conquer your personal best.</div>
-<div>
-  Registrations Open on 1st October 2023  
-</div>
-<div>Don't miss out on the opportunity to be a part of this incredible event! Registrations for the Kakinada Marathon 2024 open on 1st October 2023. Check out early bird offers and exciting benefits for those who register early.</div>
-<div>
-Join us on the 7th of January 2024, and let's run together towards fitness, adventure, and memories that will last a lifetime. We look forward to seeing you at the Kakinada Marathon 2024.
-</div>
+       {event.aboutEvent}
          </td>
+}
          </tr>
     </tbody>
     </table>
