@@ -39,5 +39,8 @@ export const Flex = styled("div")`
 display:flex;  
 flex-direction:column;
 margin-top:1em;
-
+width:49%;
+@media only screen and (max-width: 1024px) {
+  width:100%;
+}
 `;

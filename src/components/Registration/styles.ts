@@ -34,3 +34,12 @@ export const ButtonContainer = styled("div")`
     padding-top: 0.75rem;
   }
 `;
+export const Flex = styled("div")`
+display:flex;  
+flex-direction:column;
+margin-top:1em;
+width:50%;
+@media only screen and (max-width: 575px) {
+  width:100%;
+}
+`;

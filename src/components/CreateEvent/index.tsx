@@ -133,17 +133,17 @@ const CreateEvent = () => {
             <div className="col-md-6"></div>
           </div>
           <Flex>
-            <div>
+            
               <label htmlFor="year">Year</label>
-            </div>
-            <div>
+           
+           
               <DatePicker
                 className="form-control"
                 selected={year}
                 onChange={handleDayChange}
                 dateFormat="MMMM d, yyyy"
               />
-            </div>
+            
           </Flex>
 
           <div className="row" style={{ marginTop: "1em" }}>
