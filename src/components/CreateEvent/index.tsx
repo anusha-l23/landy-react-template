@@ -194,7 +194,7 @@ console.log(formData,"formData");
               <div className="row" style={{marginTop:"1em"}}>
         <div className="col-md-4">
               <label>
-                Category Name {index + 1}:   </label>
+                Name</label>
                 <input
                   type="text"
                   className="form-control"
@@ -205,7 +205,7 @@ console.log(formData,"formData");
               </div>
               <div className="col-md-4">
               <label>
-                Category Amount {index + 1}:   </label>
+                Amount </label>
                 <input
                   type="text"
                   className="form-control"
