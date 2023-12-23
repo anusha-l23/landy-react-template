@@ -26,7 +26,6 @@ const Registration = () => {
 // console.log(totalCount, totalAmount, eventName, "total")
 
 
-
 const [events, setEvents] = useState<Event[]>([])
 const [placeholder, setPlaceholder] = useState('##########');
 const handleHover = () => {
