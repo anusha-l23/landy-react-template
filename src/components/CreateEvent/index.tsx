@@ -19,9 +19,9 @@ const CreateEvent = () => {
   const [aboutEvent, setAboutEvent] = useState("");
   const [orgEmail, setOrgEmail] = useState("");
   const [contactNum, setContactNum] = useState("");
-  const [regOpenDate, setRegOpenDate] = useState(new Date())
-  const [regCloseDate, setRegCloseDate] = useState(new Date())
-
+  const [regOpenDate, setRegOpenDate] = useState(new Date());
+  const [regCloseDate, setRegCloseDate] = useState(new Date());
+  const [tag, setTag] = useState("");
   //const [year, setYear] = useState('');
   const [year, setYear] = useState(new Date());
 
@@ -90,6 +90,7 @@ const CreateEvent = () => {
       formData.append("contactNum", contactNum);
       formData.append("regOpenDate", regOpenDate.toISOString());
       formData.append("regCloseDate", regCloseDate.toISOString());
+      formData.append("tag", tag);
       //formData.append('year', year);
       formData.append("year", year.toISOString());
 
@@ -110,7 +111,7 @@ const CreateEvent = () => {
           },
         }
       );
-      history.push("/events")
+      history.push("/events");
     } catch (error) {
       console.error(error);
       throw new Error("Failed in event creation");
@@ -151,17 +152,14 @@ const CreateEvent = () => {
             <div className="col-md-6"></div>
           </div>
           <Flex>
-            
-              <label htmlFor="year">Year</label>
-           
-           
-              <DatePicker
-                className="form-control"
-                selected={year}
-                onChange={handleDayChange}
-                dateFormat="MMMM d, yyyy"
-              />
-            
+            <label htmlFor="year">Year</label>
+
+            <DatePicker
+              className="form-control"
+              selected={year}
+              onChange={handleDayChange}
+              dateFormat="MMMM d, yyyy"
+            />
           </Flex>
 
           <div className="row" style={{ marginTop: "1em" }}>
@@ -256,45 +254,41 @@ const CreateEvent = () => {
             <div className="col-md-6">
               <label htmlFor="aboutevent">About Event</label>
               <textarea
-  className="form-control"
-  id="aboutevent"
-  name="aboutEvent"
-  value={aboutEvent}
-  onChange={(e) => setAboutEvent(e.target.value)}
-  rows={4}
-/>
+                className="form-control"
+                id="aboutevent"
+                name="aboutEvent"
+                value={aboutEvent}
+                onChange={(e) => setAboutEvent(e.target.value)}
+                rows={4}
+              />
             </div>
 
             <div className="col-md-6"></div>
           </div>
           <Flex>
-            
             <label htmlFor="regopendate">registartion open date and time</label>
-         
-         
+
             <DatePicker
               className="form-control"
               selected={regOpenDate}
               onChange={handleRegOpenDayChange}
               dateFormat="MMMM d, yyyy h:mm aa"
             />
-          
-        </Flex>
-        <Flex>
-            
-            <label htmlFor="regclosedate">registartion close date and time</label>
-         
-         
+          </Flex>
+          <Flex>
+            <label htmlFor="regclosedate">
+              registartion close date and time
+            </label>
+
             <DatePicker
               className="form-control"
               selected={regCloseDate}
               onChange={handleRegCloseDayChange}
               dateFormat="MMMM d, yyyy h:mm aa"
             />
-          
-        </Flex>
+          </Flex>
 
-        <div className="row" style={{ marginTop: "1em" }}>
+          <div className="row" style={{ marginTop: "1em" }}>
             <div className="col-md-6">
               <label htmlFor="orgemail">Organizer Email</label>
               <input
@@ -311,13 +305,12 @@ const CreateEvent = () => {
           </div>
           <div className="row" style={{ marginTop: "1em" }}>
             <div className="col-md-6">
-            {orgEmail && !orgEmail.includes("@") && (
-                  <div className="text-danger">Email should contain @</div>
-                )}
+              {orgEmail && !orgEmail.includes("@") && (
+                <div className="text-danger">Email should contain @</div>
+              )}
             </div>
-            <div className="col-md-6">
-</div>
-</div>
+            <div className="col-md-6"></div>
+          </div>
           <div className="row" style={{ marginTop: "1em" }}>
             <div className="col-md-6">
               <label htmlFor="conatctnum">Contact Number</label>
@@ -333,6 +326,31 @@ const CreateEvent = () => {
 
             <div className="col-md-6"></div>
           </div>
+
+          <div className="row" style={{ marginTop: "1em" }}>
+            <div className="col-md-6">
+              <label htmlFor="eventtag">Event Tag</label>
+            </div>
+            <div className="col-md-6"></div>
+          </div>
+          <div className="row" style={{ marginTop: "1em" }}>
+            <div className="col-md-6">
+              <select
+                className="form-control"
+                id="eventtag"
+                name="eventtag"
+                value={tag}
+                onChange={(e) => setTag(e.target.value)}
+              >
+                <option value="">Select a tag</option>
+                <option value="Open">Open</option>
+                <option value="Closed">Closed</option>
+                <option value="Fast Filling">Fast Filling</option>
+              </select>
+            </div>
+            <div className="col-md-6"></div>
+          </div>
+
           <div style={{ textAlign: "center", marginTop: "1em" }}>
             <button
               className="btn btn-primary"
